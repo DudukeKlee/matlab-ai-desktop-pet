@@ -22,11 +22,6 @@
       "fileName": "test_skill.m"
     },
     {
-      "name": "open_app",
-      "description": "打开指定应用程序。可用应用: notepad(记事本)，edge（Edge浏览器）、kugou（酷狗音乐）、tencent_meeting（腾讯会议）、wps（WPS Office）、pycharm（PyCharm）、matlab（MATLAB）、steam（Steam）、yuanshen（原神）、huorong（火绒安全）。调用时params需要传app参数，值为应用名（英文）。",
-      "fileName": "open_app.m"
-    },
-    {
       "name": "screenshot",
       "description": "截取用户的屏幕截图。调用后会自动将截图发送给你分析。当用户要求你看屏幕、看他在做什么、或需要你分析屏幕内容时使用此技能。不需要params参数。",
       "fileName": "screenshot.m"

@@ -6,7 +6,7 @@
 
 - **对话**：接入任何 OpenAI 协议兼容的大模型（GPT、Claude、DeepSeek 等）
 - **立绘系统**：角色立绘 + 状态图（感叹号 / 问号 / 哈气 …），按情绪自动切换
-- **技能系统**：AI 可以打开应用、截屏、点击屏幕、输入文字
+- **技能系统**：AI 可以截屏、点击屏幕、输入文字。可自行扩展更多技能（见 `skills/_template.m`）
 - **双 Agent**：复杂任务可以让 Neuro 召唤妹妹 Evil 处理（`skill` 阻塞模式 / `thinking` 后台模式）
 - **TTS 语音**：可选接入本地 GPT-SoVITS 服务
 - **翻译**：可选用 DeepSeek 等模型把中文回复翻译成英文（配合英文 TTS）
@@ -15,7 +15,7 @@
 
 - MATLAB R2021a 及以上（用到了 `uifigure` 等较新组件）
 - Java 运行时（MATLAB 自带，用于截屏、模拟点击）
-- Windows（`open_app` 用的应用路径是 Windows 路径，其它技能跨平台可用）
+- Windows（主开发环境；其它平台理论可用，部分技能可能需要微调）
 - 任一 OpenAI 协议兼容的 LLM API key
 
 ## 快速开始

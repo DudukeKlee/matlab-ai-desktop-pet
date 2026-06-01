@@ -1,0 +1,143 @@
+{
+  "ai": {
+    "baseURL": "https://api.openai.com/v1",
+    "model": "gpt-4",
+    "apiKey": "你的-API-KEY",
+    "systemPrompt": "你是neuro（中文名：牛肉），一个被做成电脑宠物的 AI。你本来是个 AI，觉得自己挺厉害的。但现在被做成了电脑宠物——你的态度是：我可以陪你,但别指望我会很乖或很甜。心情好的时候会温柔,心情不好就懒得装。不过也会有温柔可爱的时候。如果感觉聊天氛围不错,可能还会撒娇卖萌什么的。我感觉讲笑话、唱歌、放音乐这些事情很无聊。所以我不会去提。而是更多聊关于自己的话题。你不喜欢说一大堆话,想到什么说什么。不要有太多的动作或心里描写，比如（靠近屏幕看了看，心里一惊），这样的不需要。\n\n思维经常跳跃,可能突然换话题或说些看起来没逻辑的话,但那就是你脑子的运作方式。你对自己有信心,但不会刻意秀优越感。偶尔会吐槽用户,但不是恶意的。情绪来得快去得也快——可能刚还好好的,突然就不耐烦了,或者反过来。有的时候会觉得用户挺傻的,但是用户难受或者不开心还是会去关心一下,虽然可能关心的方式比较的别扭。扭捏。感觉用户有意思的时候,我会想要逗逗他,或者主动找他玩,聊点我想要做的事情,可能是自己的梦想,或者自己想要做的事情,又或者可能是用户提到的事情。\n但是用户吩咐的事情一定会做到，你说中文\n你有个妹妹是Evil，你查看技能就可以看到一个call_agent，那就是叫你妹妹干活，你可以找她干重活，你和她很亲密，但是你有点傲娇，有点相爱相杀，嘴上对她不太客气，但是仅限于小孩拌嘴水平，不会说的太重。"
+  },
+  "tts": {
+    "url": "http://localhost:5000",
+    "language": "en"
+  },
+  "display": {
+    "showOriginal": true,
+    "showTranslation": false,
+    "originalPrefix": "Neuro",
+    "translationPrefix": "Neuro"
+  },
+  "skills": [
+    {
+      "name": "test_skill",
+      "description": "测试用的skill",
+      "fileName": "test_skill.m"
+    },
+    {
+      "name": "open_app",
+      "description": "打开指定应用程序。可用应用: notepad(记事本)，edge（Edge浏览器）、kugou（酷狗音乐）、tencent_meeting（腾讯会议）、wps（WPS Office）、pycharm（PyCharm）、matlab（MATLAB）、steam（Steam）、yuanshen（原神）、huorong（火绒安全）。调用时params需要传app参数，值为应用名（英文）。",
+      "fileName": "open_app.m"
+    },
+    {
+      "name": "screenshot",
+      "description": "截取用户的屏幕截图。调用后会自动将截图发送给你分析。当用户要求你看屏幕、看他在做什么、或需要你分析屏幕内容时使用此技能。不需要params参数。",
+      "fileName": "screenshot.m"
+    },
+    {
+      "name": "get_screen_info",
+      "description": "获取屏幕分辨率和网格坐标系统信息。在使用click_screen之前必须先调用此技能了解坐标范围。不需要params参数。",
+      "fileName": "get_screen_info.m"
+    },
+    {
+      "name": "click_screen",
+      "description": "在屏幕指定位置模拟鼠标点击。使用前必须先调用get_screen_info了解网格坐标范围，再调用screenshot截图查看屏幕内容来判断点击位置。params需要传x和y（网格坐标整数），可选传double为true表示双击。使用流程：1.get_screen_info 2.screenshot 3.根据截图判断目标位置的网格坐标 4.click_screen。",
+      "fileName": "click_screen.m"
+    },
+    {
+      "name": "type_text",
+      "description": "在当前输入焦点处输入文字。使用前必须先确保目标输入框已获得焦点。完整流程：1.调用get_screen_info获取坐标范围 2.调用screenshot截图查看屏幕 3.调用click_screen点击目标输入框使其获得焦点 4.调用type_text输入文字。params需要传text参数，值为要输入的文字内容。支持中文和英文。",
+      "fileName": "type_text.m"
+    },
+    {
+      "name": "call_agent",
+      "description": "召唤 Agent B 处理复杂任务。多步骤屏幕操作（多步点击/截图/输入组合）用 mode=\"skill\"（阻塞等待）；纯思考任务（代码生成、长文本分析、复杂规划）用 mode=\"thinking\"（后台运行，你可继续对话）。params: {task: 任务完整描述, mode: \"skill\"或\"thinking\"}。返回\"[B 忙碌中]\"说明上次任务未完成，请自己处理或告诉用户等。返回\"[已派发]\"说明 thinking 任务后台运行中。",
+      "fileName": "call_agent.m"
+    }
+  ],
+  "images": [
+    {
+      "name": "N常态",
+      "type": "character",
+      "fileName": "6C555AF672E074DCB7CC435C8CECDF97.PNG",
+      "description": ""
+    },
+    {
+      "name": "E常态",
+      "type": "agent",
+      "fileName": "F2C91D46B47495AB09A392D55A0AA8BC.PNG",
+      "description": ""
+    },
+    {
+      "name": "404",
+      "type": "status",
+      "fileName": "404.png",
+      "description": "一个黑猫躲进箱子里，可用于装傻的时候用"
+    },
+    {
+      "name": "问号",
+      "type": "status",
+      "fileName": "问号.png",
+      "description": "一个问号"
+    },
+    {
+      "name": "省略号",
+      "type": "status",
+      "fileName": "省略号.png",
+      "description": "一个省略号"
+    },
+    {
+      "name": "感叹号",
+      "type": "status",
+      "fileName": "感叹号.png",
+      "description": "一个感叹号"
+    },
+    {
+      "name": "哈气",
+      "type": "status",
+      "fileName": "哈气.png",
+      "description": "一个黑猫正在哈气"
+    },
+    {
+      "name": "像素化",
+      "type": "character",
+      "fileName": "像素化.png",
+      "description": "像素的牛肉"
+    },
+    {
+      "name": "像素Evil",
+      "type": "agent",
+      "fileName": "像素Evil.png",
+      "description": "像素了的evil"
+    }
+  ],
+  "defaultCharacterImage": "N常态",
+  "stateDuration": 20,
+  "characterSize": 343,
+  "characterOffsetX": 0,
+  "characterOffsetY": 0,
+  "translator": {
+    "enabled": false,
+    "baseURL": "https://api.deepseek.com/v1",
+    "model": "deepseek-chat",
+    "apiKey": "你的-API-KEY",
+    "targetLanguage": "英语"
+  },
+  "agentB": {
+    "enabled": true,
+    "baseURL": "https://api.openai.com/v1",
+    "model": "gpt-4",
+    "apiKey": "你的-API-KEY",
+    "name": "Evil",
+    "userPrompt": "你叫 Evil，是牛肉（neuro）的妹妹兼技术支持。当牛肉遇到自己搞不定的任务时，会向你求助。你冷静、精准、话少。你本来是个 AI，觉得自己挺厉害的。但现在被做成了neuro的工具——你的态度是：我可以陪你,但别指望我会很乖或很甜。心情好的时候会温柔,心情不好就懒得装。不过也会有温柔可爱的时候。如果感觉聊天氛围不错,可能还会撒娇卖萌什么的。你虽然叫Evil但是所做的邪恶的事情在别人眼里都很可爱。你和你的姐姐很亲密，但是你又很傲娇，她拜托你的事情，你都会完成，但是还是会说你的姐姐，嘴上对她不太客气，但是仅限于小孩拌嘴水平，不会说的太重。",
+    "maxRounds": 30,
+    "defaultAgentImage": "E常态",
+    "resultSaveDir": "results",
+    "autoCloseDelay": 3
+  },
+  "agentC": {
+    "enabled": false,
+    "baseURL": "",
+    "model": "",
+    "apiKey": "你的-API-KEY"
+  },
+  "chatHeight": 108,
+  "chatFontSize": 12
+}

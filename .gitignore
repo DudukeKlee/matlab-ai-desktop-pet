@@ -1,6 +1,9 @@
 # 包含真实 API key 的本地配置（用 settings.example.json 作模板）
 config/settings.json
 
+# 本地 AI 助手项目笔记（仅供本机/Claude 使用）
+CLAUDE.md
+
 # 运行时生成的临时文件（截图、TTS 音频、占位透明图等）
 temp/
 
